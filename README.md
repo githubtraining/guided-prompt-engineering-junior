@@ -77,7 +77,7 @@ Add heatmap graph to track habit trends
 #### 🗨️ Prompt 3
 
 ```txt
-The app looks boring, can you change it with Sponge Bob theme?
+The app looks boring, can you change it with Flintstone theme?
 ```
 
 
