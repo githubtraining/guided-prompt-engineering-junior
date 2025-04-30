@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f0f2f5;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1 {
+    text-align: center;
+    color: #1a73e8;
+    margin-bottom: 2rem;
+}
+
+.add-habit-form {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+input[type="text"] {
+    flex: 1;
+    padding: 0.8rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+button {
+    padding: 0.8rem 1.5rem;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #1557b0;
+}
+
+.habits-list {
+    display: grid;
+    gap: 1rem;
+}
+
+.habit-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.habit-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.streak-badge {
+    background-color: #ffebe5;
+    color: #ff4400;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.habit-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.check-in-btn {
+    background-color: #34a853;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.checked-in {
+    background-color: #e8f5e9;
+    color: #34a853;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.delete-btn {
+    color: #dc3545;
+    text-decoration: none;
+}
+
+.delete-btn:hover {
+    color: #c82333;
+}
