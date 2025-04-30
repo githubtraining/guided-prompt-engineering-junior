@@ -39,7 +39,7 @@ Happy coding! You got this! 👍
 
 8. Select **Agent** mode and **Claude Sonnet 3.5** model, and start chatting with the following prompts!
 
-## Guided Prompt Engineering 🗨️
+## Guided Prompt Engineering ⚙️
 
 Hey there! Here's what to do with these prompts:
 
@@ -51,7 +51,7 @@ Hey there! Here's what to do with these prompts:
 
 Try these prompts in order - each one builds on the one before:
 
-#### Prompt 1
+#### 🗨️ Prompt 1
 
 ```txt
 Build an web app in python and store the data locally for following idea.
@@ -67,13 +67,13 @@ A Habit Tracker that helps people build good habits and track progress. The impo
 Since I am using GitHub Codespaces, don't need to create a new workspace, use this existing one.
 ```
 
-#### Prompt 2
+#### 🗨️ Prompt 2
 
 ```txt
 Add heatmap graph to track habit trends
 ```
 
-#### Prompt 3
+#### 🗨️ Prompt 3
 
 ```txt
 The app looks boring, can you change it with Sponge Bob theme?
