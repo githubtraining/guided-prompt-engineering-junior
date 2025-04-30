@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habit Tracker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
+
 <body>
     <div class="container">
         <h1>My Habit Tracker</h1>
-        
+
         <form action="{{ url_for('add_habit') }}" method="POST" class="add-habit-form">
             <input type="text" name="name" placeholder="Enter new habit..." required>
             <button type="submit">Add Habit</button>
@@ -21,7 +23,7 @@
                 <div class="habit-info">
                     <h3>{{ habit.name }}</h3>
                     <div class="streak-info">
-                        <span class="streak-badge">🔥 Streak: {{ habit.total_completions() }}</span>
+                        <span class="streak-badge">🔥 Streak: {{ habit.calculate_streak() }}</span>
                     </div>
                 </div>
                 <div class="habit-actions">
@@ -38,4 +40,5 @@
         </div>
     </div>
 </body>
+
 </html>

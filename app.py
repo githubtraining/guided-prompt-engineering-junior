@@ -28,8 +28,30 @@ class Habit(db.Model):
     def __repr__(self):
         return f'<Habit {self.name}>'
 
-    def total_completions(self):
-        return HabitLog.query.filter_by(habit_id=self.id).count()
+    def calculate_streak(self):
+        logs = HabitLog.query.filter_by(
+            habit_id=self.id).order_by(HabitLog.date.desc()).all()
+        if not logs:
+            return 0
+
+        streak = 1
+        today = date.today()
+
+        # If the most recent log isn't from today or yesterday, streak is just 0 or 1
+        if logs[0].date != today and logs[0].date != today - timedelta(days=1):
+            # Return 1 if checked in today, otherwise 0
+            return 1 if logs[0].date == today else 0
+
+        # Count consecutive days
+        for i in range(len(logs) - 1):
+            # If this log and the next one are consecutive days
+            if logs[i].date - logs[i+1].date == timedelta(days=1):
+                streak += 1
+            else:
+                # Break the streak when we find a gap
+                break
+
+        return streak
 
 # HabitLog model
 
