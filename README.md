@@ -38,6 +38,7 @@ Happy coding! You got this! 👍
 > Wait for GitHub Copilot Chat to load and reply back to you
 
 8. Select **Agent** mode and **Claude Sonnet 3.5** model, and start chatting with the following prompts!
+9. (Optional) If you want to check the code is working properly, run `python app.py`
 
 ## Guided Prompt Engineering ⚙️
 
