@@ -11,9 +11,8 @@ A super awesome web app that helps you track your daily habits - like doing push
 
 ## What You'll Learn 🧠
 
-- How to make a webpage with HTML
-- How to make it look cool with CSS
-- How to make it actually DO stuff with Python and JavaScript
+- How to chat to agent bot to create stuff
+- How to actually create app with HTML, CSS, Python and JavaScript
 
 ## Need Help? 🆘
 
