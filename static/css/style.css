@@ -22,6 +22,11 @@ h1 {
     margin-bottom: 2rem;
 }
 
+h2 {
+    color: #1a73e8;
+    margin: 1.5rem 0 1rem;
+}
+
 .add-habit-form {
     display: flex;
     gap: 1rem;
@@ -67,13 +72,26 @@ button:hover {
 
 .habit-info {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.streak-info {
+    display: flex;
     gap: 1rem;
 }
 
 .streak-badge {
     background-color: #ffebe5;
     color: #ff4400;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.count-badge {
+    background-color: #e8f0fe;
+    color: #1a73e8;
     padding: 0.5rem 1rem;
     border-radius: 20px;
     font-weight: bold;
@@ -107,4 +125,33 @@ button:hover {
 
 .delete-btn:hover {
     color: #c82333;
+}
+
+.detail-btn {
+    background-color: #e8f0fe;
+    color: #1a73e8;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    text-decoration: none;
+}
+
+.habit-stats {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.stat-item {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 45%;
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 10px;
 }
