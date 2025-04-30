@@ -39,7 +39,7 @@ Happy coding! You got this! 👍
 
 8. Select **Agent** mode and **Claude Sonnet 3.5** model, and start chatting with the following prompts!
 
-## Guided Prompt Engineering
+## Guided Prompt Engineering 🗨️
 
 Hey there! Here's what to do with these prompts:
 
