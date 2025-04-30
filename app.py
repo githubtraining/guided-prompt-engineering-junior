@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime, date
+from datetime import datetime, date, timedelta
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///habits.db'
@@ -12,11 +12,24 @@ class Habit(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    streak = db.Column(db.Integer, default=0)
     last_check_in = db.Column(db.Date)
+    logs = db.relationship('HabitLog', backref='habit', lazy=True)
 
     def __repr__(self):
         return f'<Habit {self.name}>'
+        
+    def total_completions(self):
+        return len(self.logs)
+
+# HabitLog model to track completions by date
+class HabitLog(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    habit_id = db.Column(db.Integer, db.ForeignKey('habit.id'), nullable=False)
+    date = db.Column(db.Date, nullable=False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    
+    def __repr__(self):
+        return f'<HabitLog for habit_id {self.habit_id} on {self.date}>'
 
 # Create all database tables
 with app.app_context():
@@ -42,14 +55,31 @@ def check_in(habit_id):
     today = date.today()
     
     if habit.last_check_in != today:
-        if habit.last_check_in is None or (today - habit.last_check_in).days == 1:
-            habit.streak += 1
-        elif (today - habit.last_check_in).days > 1:
-            habit.streak = 1
-        habit.last_check_in = today
-        db.session.commit()
+        # Check if this habit already has a log for today
+        existing_log = HabitLog.query.filter_by(habit_id=habit.id, date=today).first()
+        if not existing_log:
+            # Create a new log entry
+            log = HabitLog(habit_id=habit.id, date=today)
+            db.session.add(log)
+            habit.last_check_in = today
+            db.session.commit()
     
     return redirect(url_for('index'))
+
+@app.route('/habit/<int:habit_id>')
+def habit_detail(habit_id):
+    habit = Habit.query.get_or_404(habit_id)
+    logs = HabitLog.query.filter_by(habit_id=habit.id).order_by(HabitLog.date.desc()).all()
+    
+    # Get data for last 7 days for display
+    today = date.today()
+    last_7_days = []
+    for i in range(6, -1, -1):
+        day = today - timedelta(days=i)
+        completed = any(log.date == day for log in logs)
+        last_7_days.append({'date': day, 'completed': completed})
+    
+    return render_template('habit_detail.html', habit=habit, logs=logs, last_7_days=last_7_days)
 
 @app.route('/delete/<int:habit_id>')
 def delete_habit(habit_id):
