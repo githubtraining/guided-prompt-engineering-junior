@@ -1,45 +1,71 @@
+# Import required modules
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, date, timedelta
+import os
 
+# Initialize Flask app
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///habits.db'
+
+# Configure SQLAlchemy
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "instance", "habits.db")}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 # Habit model
+
+
 class Habit(db.Model):
+    __tablename__ = 'habit'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     last_check_in = db.Column(db.Date)
-    logs = db.relationship('HabitLog', backref='habit', lazy=True)
+    logs = db.relationship('HabitLog', backref='habit',
+                           lazy='select', cascade='all, delete-orphan')
 
     def __repr__(self):
         return f'<Habit {self.name}>'
-        
-    def total_completions(self):
-        return len(self.logs)
 
-# HabitLog model to track completions by date
+    def total_completions(self):
+        return HabitLog.query.filter_by(habit_id=self.id).count()
+
+# HabitLog model
+
+
 class HabitLog(db.Model):
+    __tablename__ = 'habit_log'
     id = db.Column(db.Integer, primary_key=True)
-    habit_id = db.Column(db.Integer, db.ForeignKey('habit.id'), nullable=False)
+    habit_id = db.Column(db.Integer, db.ForeignKey(
+        'habit.id', ondelete='CASCADE'), nullable=False)
     date = db.Column(db.Date, nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
-    
+
     def __repr__(self):
         return f'<HabitLog for habit_id {self.habit_id} on {self.date}>'
 
 # Create all database tables
-with app.app_context():
-    db.create_all()
+
+
+def init_db():
+    try:
+        with app.app_context():
+            db.create_all()
+    except Exception as e:
+        print(f"Database initialization error: {e}")
+
+
+# Initialize database
+init_db()
+
 
 @app.route('/')
 def index():
     habits = Habit.query.all()
     today = date.today()
     return render_template('index.html', habits=habits, today=today)
+
 
 @app.route('/add_habit', methods=['POST'])
 def add_habit():
@@ -49,28 +75,32 @@ def add_habit():
     db.session.commit()
     return redirect(url_for('index'))
 
+
 @app.route('/check_in/<int:habit_id>')
 def check_in(habit_id):
     habit = Habit.query.get_or_404(habit_id)
     today = date.today()
-    
+
     if habit.last_check_in != today:
         # Check if this habit already has a log for today
-        existing_log = HabitLog.query.filter_by(habit_id=habit.id, date=today).first()
+        existing_log = HabitLog.query.filter_by(
+            habit_id=habit.id, date=today).first()
         if not existing_log:
             # Create a new log entry
             log = HabitLog(habit_id=habit.id, date=today)
             db.session.add(log)
             habit.last_check_in = today
             db.session.commit()
-    
+
     return redirect(url_for('index'))
+
 
 @app.route('/habit/<int:habit_id>')
 def habit_detail(habit_id):
     habit = Habit.query.get_or_404(habit_id)
-    logs = HabitLog.query.filter_by(habit_id=habit.id).order_by(HabitLog.date.desc()).all()
-    
+    logs = HabitLog.query.filter_by(
+        habit_id=habit.id).order_by(HabitLog.date.desc()).all()
+
     # Get data for last 7 days for display
     today = date.today()
     last_7_days = []
@@ -78,8 +108,9 @@ def habit_detail(habit_id):
         day = today - timedelta(days=i)
         completed = any(log.date == day for log in logs)
         last_7_days.append({'date': day, 'completed': completed})
-    
+
     return render_template('habit_detail.html', habit=habit, logs=logs, last_7_days=last_7_days)
+
 
 @app.route('/delete/<int:habit_id>')
 def delete_habit(habit_id):
@@ -87,6 +118,7 @@ def delete_habit(habit_id):
     db.session.delete(habit)
     db.session.commit()
     return redirect(url_for('index'))
+
 
 if __name__ == '__main__':
     app.run(debug=True)
