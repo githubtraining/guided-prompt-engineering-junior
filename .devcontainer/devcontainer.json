@@ -1,0 +1,30 @@
+{
+    "name": "Python Flask",
+    "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "njpwerner.autodocstring",
+                "streetsidesoftware.code-spell-checker",
+                "ms-azuretools.vscode-docker",
+                "ms-vscode-remote.remote-containers"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.formatting.provider": "black",
+                "editor.formatOnSave": true,
+                "editor.rulers": [
+                    88
+                ],
+                "python.analysis.typeCheckingMode": "basic"
+            }
+        }
+    },
+    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+    "forwardPorts": [
+        5000
+    ]
+}

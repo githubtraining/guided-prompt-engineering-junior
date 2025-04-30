@@ -33,6 +33,7 @@ Happy coding! You got this! 👍
 5. Wait a minute while your coding space loads (it's like loading a video game!)
 6. Once it's ready, you'll see your project files on the left side
 7. Open **GitHub Copilot Chat**, and say *"Hello"*
+<!-- 8. (Optional) If you want to check the code is working properly, run `python app.py` -->
 
 > Wait for GitHub Copilot Chat to load and reply back to you
 
@@ -54,30 +55,50 @@ Try these prompts in order - each one builds on the one before:
 
 #### 🗨️ Prompt 1
 
-```txt
-Build an web app in python and store the data locally for following idea.
-
-A Habit Tracker that helps people build good habits and track progress. The important things it must include:
-
-- Daily Affirmations: Show positive and motivational messages every day, even offline.
-
-- Habit Tracker: People can add, edit, and delete habits, daily check-in, and have a badge to show the streaks.
-
-- Goal Setting & Progress: People can set streak goal for each habit to stay motivated.
-
-Since I am using GitHub Codespaces, don't need to create a new workspace, use this existing one.
+```
+My coach gave me this code, I have no idea what this is, can you help me?
 ```
 
 #### 🗨️ Prompt 2
 
-```txt
-Add heatmap graph to track habit trends
+```
+How do I run it?
 ```
 
 #### 🗨️ Prompt 3
 
-```txt
-The app looks boring, can you change it with Flintstone theme?
+```
+Add a champion badge when I can do the habit for 5 consecutive days
 ```
 
+#### 🗨️ Prompt 4
 
+```
+Give me positive message every day so I can stay motivate, even offline.
+```
+
+#### 🗨️ Prompt 5
+
+```txt
+The app looks kinda boring, can you change it with Flintstone theme?
+```
+
+#### 🗨️ Prompt 6
+
+```
+I want to share my progress with friends, can you add the share buttons for Facebook, TikTok and X?
+```
+
+#### 🗨️ Prompt 7
+
+```
+I want to enable download the habit into my calendar with daily reminder
+```
+
+#### 🗨️ Prompt 8
+
+```
+I don't like the boring list of check-in dates in the habit page, instead displaying the check-in dates with interesting graph 
+```
+
+#### 
