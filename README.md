@@ -44,9 +44,11 @@ Hey there! Here's what to do with these prompts:
 
 1. Copy each prompt one at a time
 2. Paste it into the **GitHub Copilot Chat** window
-3. Wait for Copilot to give you a response (this might take a few seconds)
-4. Follow Copilot's instructions to build your app step by step
-5. If you get stuck, ask your instructor for help!
+
+> Wait for Copilot to give you a response (this might take a few minutes)
+
+3. Follow Copilot's instructions to build your app step by step
+4. If you get stuck, ask your instructor for help!
 
 Try these prompts in order - each one builds on the one before:
 
