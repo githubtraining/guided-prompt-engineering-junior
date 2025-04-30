@@ -68,19 +68,8 @@ class HabitLog(db.Model):
         return f'<HabitLog for habit_id {self.habit_id} on {self.date}>'
 
 # Create all database tables
-
-
-def init_db():
-    try:
-        with app.app_context():
-            db.create_all()
-    except Exception as e:
-        print(f"Database initialization error: {e}")
-
-
-# Initialize database
-init_db()
-
+with app.app_context():
+    db.create_all()
 
 @app.route('/')
 def index():
