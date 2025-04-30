@@ -23,8 +23,9 @@ Happy coding! You got this! 👍
 
 ## Getting Started 😎
 
-1. Click the green **Use this template** button at the top of this page
-2. Give your repository a cool name (like "my-awesome-habit-tracker")
+1. Log into your GitHub user account (or create one if you don't have any)
+2. Click the green **Use this template** button at the top of this page
+3. Give your repository a cool name (like "my-awesome-habit-tracker")
 
 > Wait for a minute to copy the files over and page to load
 
