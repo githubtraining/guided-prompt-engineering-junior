@@ -26,7 +26,8 @@
                 "portsAttributes": {
                     "5000": {
                         "label": "Web Preview",
-                        "onAutoForward": "openPreview"
+                        "onAutoForward": "openBrowser",
+                        "openIn": "editor"
                     }
                 }
             }
