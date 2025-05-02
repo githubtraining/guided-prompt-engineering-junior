@@ -38,9 +38,6 @@
             }
         }
     },
-    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt && python app.py",
-    "postCreateCommand-runArgs": [
-        "--init-log-level=info"
-    ],
+    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
     "postStartCommand": "git config --global safe.directory '*'"
 }
