@@ -30,15 +30,17 @@ Happy coding! You got this! 👍
 
 3. Click the green **Code** button, then select the **Codespaces** tab
 4. Click **Create codespace on main** to start your coding workspace
-5. Wait a minute while your coding space loads (it's like loading a video game!)
-6. Once it's ready, you'll see your project files on the left side
-7. Open **GitHub Copilot Chat**, and say *"Hello"*
+
+> Wait a minute while your coding space loads (it's like loading a video game!)
+
+5. Once it's ready, you'll see your project files on the left side
+6. Open **GitHub Copilot Chat**, and say *"Hello"*
 <!-- 8. (Optional) If you want to check the code is working properly, run `python app.py` -->
 
 > Wait for GitHub Copilot Chat to load and reply back to you
 
-8. Select **Agent** mode and **Claude Sonnet 3.5** model, and start chatting with the following prompts!
-9. (Optional) If you want to check the code is working properly, run `python app.py`
+7. Select **Agent** mode and **Claude Sonnet 3.5** model, and start chatting with the following prompts!
+8. (Optional) If you want to check the code is working properly, run `python app.py`
 
 ## Guided Prompt Engineering ⚙️
 
