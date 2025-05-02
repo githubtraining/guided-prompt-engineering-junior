@@ -18,7 +18,8 @@
                 "ms-python.black-formatter",
                 "njpwerner.autodocstring",
                 "streetsidesoftware.code-spell-checker",
-                "ms-azuretools.vscode-containers"
+                "ms-azuretools.vscode-containers",
+                "sanaajani.taskrunnercode"
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
