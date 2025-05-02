@@ -67,9 +67,11 @@ class HabitLog(db.Model):
     def __repr__(self):
         return f'<HabitLog for habit_id {self.habit_id} on {self.date}>'
 
+
 # Create all database tables
 with app.app_context():
     db.create_all()
+
 
 @app.route('/')
 def index():
@@ -132,4 +134,4 @@ def delete_habit(habit_id):
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
