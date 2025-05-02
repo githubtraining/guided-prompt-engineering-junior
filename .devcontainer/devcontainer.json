@@ -38,6 +38,6 @@
             }
         }
     },
-    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt && echo Setup complete.",
+    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt && python app.py",
     "postStartCommand": "git config --global safe.directory '*'"
 }
