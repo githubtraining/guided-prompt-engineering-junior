@@ -31,7 +31,8 @@
                 },
                 "git.autofetch": true,
                 "git.autorefresh": true,
-                "git.fetchOnPull": true
+                "git.fetchOnPull": true,
+                "extensions.ignoreRecommendations": true
             }
         }
     },
