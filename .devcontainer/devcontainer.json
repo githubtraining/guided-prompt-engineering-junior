@@ -8,9 +8,7 @@
                 "ms-python.vscode-pylance",
                 "ms-python.black-formatter",
                 "njpwerner.autodocstring",
-                "streetsidesoftware.code-spell-checker",
-                "ms-azuretools.vscode-docker",
-                "ms-vscode-remote.remote-containers"
+                "streetsidesoftware.code-spell-checker"
             ],
             "settings": {
                 "python.defaultInterpreterPath": "/usr/local/bin/python",
@@ -26,14 +24,11 @@
                 "portsAttributes": {
                     "5000": {
                         "label": "Web Preview",
-                        "onAutoForward": "openPreview",
+                        "onAutoForward": "openBrowser",
                         "openIn": "editor"
                     }
                 },
-                "extensions.ignoreRecommendations": true,
-                "git.autofetch": true,
-                "git.fetchOnPull": true
-            }
+å            }
         }
     },
     "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
