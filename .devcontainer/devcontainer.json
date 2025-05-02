@@ -30,7 +30,9 @@
                         "openIn": "editor"
                     }
                 },
-                "extensions.ignoreRecommendations": true
+                "extensions.ignoreRecommendations": true,
+                "git.autofetch": true,
+                "git.fetchOnPull": true
             }
         }
     },
