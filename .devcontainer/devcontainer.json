@@ -19,7 +19,15 @@
                 "editor.rulers": [
                     88
                 ],
-                "python.analysis.typeCheckingMode": "basic"
+                "python.analysis.typeCheckingMode": "basic",
+                "notifications.autoHideWarnings": true,
+                "notifications.autoHideInfo": true,
+                "notifications.showErrors": true,
+                "debug.openDebug": "never",
+                "debug.javascript.autoAttachFilter": "disabled",
+                "workbench.editorAssociations": {
+                    "*.html": "default"
+                }
             }
         }
     },
