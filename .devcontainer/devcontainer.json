@@ -23,10 +23,11 @@
                 "notifications.autoHideWarnings": true,
                 "notifications.autoHideInfo": true,
                 "notifications.showErrors": true,
-                "debug.openDebug": "never",
-                "debug.javascript.autoAttachFilter": "disabled",
-                "workbench.editorAssociations": {
-                    "*.html": "default"
+                "portsAttributes": {
+                    "5000": {
+                        "label": "Web Preview",
+                        "onAutoForward": "preview"
+                    }
                 }
             }
         }
