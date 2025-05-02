@@ -28,12 +28,16 @@
                         "onAutoForward": "openBrowser",
                         "openIn": "editor"
                     }
-                }
+                },
+                "git.autofetch": true,
+                "git.autorefresh": true,
+                "git.fetchOnPull": true
             }
         }
     },
     "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
     "forwardPorts": [
         5000
-    ]
+    ],
+    "initializeCommand": "git config --global safe.directory '*'"
 }
