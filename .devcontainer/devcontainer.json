@@ -35,9 +35,9 @@
             }
         }
     },
-    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
     "forwardPorts": [
         5000
     ],
-    "initializeCommand": "git config --global safe.directory '*'"
+    "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
+    "postStartCommand": "git config --global safe.directory '*'"
 }
