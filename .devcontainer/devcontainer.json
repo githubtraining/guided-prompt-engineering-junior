@@ -29,7 +29,8 @@
                         "onAutoForward": "openBrowser",
                         "openIn": "editor"
                     }
-                }
+                },
+                "extensions.ignoreRecommendations": true
             }
         }
     },
