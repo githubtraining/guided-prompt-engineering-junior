@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Install Dependencies",
+            "type": "shell",
+            "command": "pip install -r requirements.txt",
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run Habit Tracking App",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "app.py"
+            ],
+            "problemMatcher": [],
+            "presentation": {
+                "reveal": "always"
+            },
+            "dependsOn": [
+                "Install Dependencies"
+            ],
+            "runOptions": {
+                "runOn": "folderOpen"
+            }
+        }
+    ]
+}

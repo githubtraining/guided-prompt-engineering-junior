@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habit Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Habit Tracker</h1>
+
+        <form action="{{ url_for('add_habit') }}" method="POST" class="add-habit-form">
+            <input type="text" name="name" placeholder="Enter new habit..." required>
+            <button type="submit">Add Habit</button>
+        </form>
+
+        <div class="habits-list">
+            {% for habit in habits %}
+            <div class="habit-card">
+                <div class="habit-info">
+                    <h3>{{ habit.name }}</h3>
+                    <div class="streak-info">
+                        <span class="streak-badge">🔥 Streak: {{ habit.calculate_streak() }}</span>
+                    </div>
+                </div>
+                <div class="habit-actions">
+                    {% if habit.last_check_in != today %}
+                    <a href="{{ url_for('check_in', habit_id=habit.id) }}" class="check-in-btn">✓ Check In</a>
+                    {% else %}
+                    <span class="checked-in">✓ Done today!</span>
+                    {% endif %}
+                    <a href="{{ url_for('habit_detail', habit_id=habit.id) }}" class="detail-btn">📆 History</a>
+                    <a href="{{ url_for('delete_habit', habit_id=habit.id) }}" class="delete-btn">🗑️ Delete</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>

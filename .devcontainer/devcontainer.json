@@ -1,0 +1,44 @@
+{
+    "name": "Python Flask",
+    "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bullseye",
+    "forwardPorts": [
+        5000
+    ],
+    "portsAttributes": {
+        "5000": {
+            "label": "Web Preview",
+            "onAutoForward": "openPreview"
+        }
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-python.black-formatter",
+                "njpwerner.autodocstring",
+                "streetsidesoftware.code-spell-checker",
+                "ms-azuretools.vscode-containers",
+                "sanaajani.taskrunnercode"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.formatting.provider": "black",
+                "editor.formatOnSave": true,
+                "editor.rulers": [
+                    88
+                ],
+                "python.analysis.typeCheckingMode": "basic",
+                "notifications.autoHideWarnings": true,
+                "notifications.autoHideInfo": true,
+                "notifications.showErrors": true,
+                "git.autofetch": true,
+                "git.autorefresh": true,
+                "git.fetchOnPull": true,
+                "extensions.ignoreRecommendations": true
+            }
+        }
+    },
+    "postCreateCommand": "pip install --upgrade pip",
+    "postStartCommand": "git config --global safe.directory '*' && python /workspaces/guided-prompt-engineering-junior/.devcontainer/scripts/update_dates.py"
+}
